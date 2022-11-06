@@ -1,6 +1,6 @@
 {
   "name": "atom-ide-definitions",
-  "main": "./lib/main",
+  "main": "./dist/main.js",
   "version": "0.4.2",
   "description": "A replacement for the Definitions functionality that was originally part of the Atom IDE package from Facebook.",
   "keywords": [
@@ -18,25 +18,29 @@
     "test.format": "prettier . --check",
     "lint": "eslint . --fix",
     "test.lint": "eslint .",
-    "bump": "ncu -u -x coffeescript"
+    "bump": "ncu -u -x coffeescript",
+    "build": "rollup -c",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "atom-ide-base": "^2.3.2",
     "atom-package-deps": "^7.2.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "@rollup/plugin-babel": "^6.0.2",
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/atom": "^1.40.7",
     "@types/node": "^16.0.0",
-    "prettier": "^2.2.1",
     "eslint": "7.32.0",
     "eslint-config-atomic": "^1.9.0",
-    "npm-check-updates": "11.8.5"
+    "npm-check-updates": "11.8.5",
+    "prettier": "^2.2.1",
+    "rollup": "^3.2.5"
   },
   "activationHooks": [
     "core:loaded-shell-environment"
-  ],
-  "package-deps": [
-    "atom-ide-hyperclick"
   ],
   "consumedServices": {
     "definitions": {
